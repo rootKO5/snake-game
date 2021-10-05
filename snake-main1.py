@@ -241,3 +241,19 @@ def gameLoop():
             pygame.display.update()
             time.sleep(3)
             snake.reset()
+
+                #updating the values if snake goes out of board
+        if snake.history[0][0] > width:
+            snake.history[0][0] = 0
+        if snake.history[0][0] < 0:
+            snake.history[0][0] = width
+
+        if snake.history[0][1] > height:
+            snake.history[0][1] = 0
+        if snake.history[0][1] < 0:
+            snake.history[0][1] = height
+
+        pygame.display.update()
+        clock.tick(10) #at most 10 frames should pass in 1 sec, it is used to control the speed of snake 
+
+gameLoop()
